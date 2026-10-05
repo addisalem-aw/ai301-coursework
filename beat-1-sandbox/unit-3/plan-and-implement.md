@@ -14,18 +14,23 @@ label is not graded.
 ## Posted upstream
 
 **GitHub username**
-
-[Your GitHub username, exactly as it appears on your profile - no @, no
-profile URL. Your comment upstream is identified by this name, and it is
-the only thing that ties it to you. Several students may plan the same
-house issue, so this is what keeps their comments off your score and
-yours off theirs.]
+addisalem-aw
 
 **Plan comment**
 
-[Link to the comment where you posted your plan on the issue. Use the comment's own
-permalink. **Then paste the text of that comment underneath the link** — the pasted text is
-what this field is graded on, so copy across what you actually posted.]
+https://github.com/codepath/pathreview-ai301-fa26-s3/issues/61#issuecomment-5986068897
+
+##Plan
+
+I will fix the PostgreSQL health-check failure by updating api/routes/health.py so the "SELECT 1" probe uses SQLAlchemy's text() construct.
+
+Steps
+
+Update the database health probe from the raw SQL string to text("SELECT 1").
+Add a focused unit regression test to verify that the database probe passes a SQLAlchemy TextClause.
+Run the focused regression test and the unit test suite.
+Re-run the reproduction for Issue Health check DB probe passes a raw SQL string, which fails under SQLAlchemy 2.x #61 and verify that PostgreSQL reports as healthy.
+Leave the separate Redis health-check failure unchanged because it is outside the scope of Issue Health check DB probe passes a raw SQL string, which fails under SQLAlchemy 2.x #61.
 
 ---
 
@@ -33,10 +38,7 @@ what this field is graded on, so copy across what you actually posted.]
 
 **Branch**
 
-[The name of the branch you built the change on, exactly as it appears in your fork. The
-naming shape is a type prefix, then the issue number, then a short description. **The issue
-number in the branch name must be the number of the issue you claimed** — a name carrying
-any other number does not satisfy this field.]
+fix/61-sqlalchemy-health-check
 
 **Evidence**
 
@@ -45,33 +47,31 @@ after. Paste both, including the commands you ran and their output.]
 
 ## Eval iterations
 
-Answer all four sections. Quote source text directly; paraphrase does not satisfy these
-fields.
 
 **Run history**
 
-[The agreement score of each run you did, in order. A single run is a complete answer if
-only one run occurred. **The last score in your list must match the agreement line in the
-`eval-run.txt` you committed** — that file is the record of your final run.]
+
+18/20 — PASS
+
+The final complete run evaluated all 20 scored packages and reported:
+`agreement: 18/20 scored items (bar: 18/20: PASS)`
 
 **Package analysis**
 
-[Pick one scored package (`pkg-01` through `pkg-20` — the four `calib-` packages are never
-scored). Name it by id, say what your rubric decided and what the gold label said, and
-explain why your rubric read it that way.]
+`pkg-05` — My rubric decided **reject**, while the gold label was **accept**. The disagreement occurred because my rubric flagged the package for insufficient treatment of risks (`failed: risks`). The gold label considered the package acceptable, so this package shows that my rubric was stricter about the risk requirement than the gold standard.
 
 **Check rationale**
 
-[Quote one check from the `rubric.md` you uploaded to `tools/plan-check/`, exactly as it reads now.
-Then say why it reads that way — what you revised to get there, or what you rejected in
-favour of it.]
+> Pass if the diagnosis explains the observed failure and does not contradict the reproduced evidence; the stated cause should account for the behavior rather than merely restating the symptom.
+
+I kept this check because the plan needs to identify the actual cause of the health-check failure, not just repeat that PostgreSQL is reported as unhealthy. For Issue #61, the reproduction showed that the raw `"SELECT 1"` string was rejected by SQLAlchemy, so the diagnosis needs to connect that observed failure to the use of SQLAlchemy's `text()` construct. This check also prevents a plan from being accepted when its diagnosis contradicts the reproduction evidence.
+
 
 **Trade-offs**
 
-[Every check gives something up. Any one of these is a complete answer: a package whose
-result it changes, a canary you re-ran with `--only`, a case you accept it will miss, or a
-stated reason nothing changed elsewhere. "Nothing changed, and here is how I know" earns
-the point in full when the reason follows.]
+
+The rubric is intentionally strict about risks and implementation details. In the final run, this changed the result for `pkg-05`: the rubric returned **reject** while the gold label was **accept**, with the evaluation noting `failed: risks`. The same strictness also affected `pkg-14`, which the rubric rejected for `files, approach, risks` while the gold label was **accept**. I accepted this trade-off because the required checks are intended to prevent plans with insufficiently identified risks or implementation details from being treated as ready to build.
+
 
 ---
 
