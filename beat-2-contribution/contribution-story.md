@@ -1,4 +1,4 @@
-# Contribution: [Issue Title]
+# Contribution: [BUG] GetRequest API is not returning featureAttributes as expected
 
 Path: `beat-2-contribution/contribution-story.md`
 
@@ -8,11 +8,10 @@ format criteria grade exactly that. Your course repo link is the whole submissio
 files and no evidence uploads are part of Assignment 5.
 
 **Contribution Number:** [1]
-**Student:** [Student name]
-**GitHub Username:** [your GitHub username, exactly as it appears on your profile - no @, no
-profile URL. Your comments upstream are identified by this name.]
-**Issue:** [GitHub issue link]
-**Pull Request:** [GitHub PR link, once opened]
+**Student:** Addisalem
+**GitHub Username:** addisalem-aw
+**Issue:** https://github.com/opensearch-project/opensearch-java/issues/289
+**Pull Request:** Not opened yet
 
 One repository, built across units 5 to 8, telling the whole story of your real
 contribution. Fill it as you work, not at the end — the sections below ask for evidence that
@@ -55,10 +54,12 @@ happened; these entries are the toolkit's own timeline.
 All four entries are graded. Keep every heading below, and fill each
 one in the week it belongs to.
 
-**Unit 5: [one line on the tool work]**
+**Unit 5: Built and refined the issue-scout tool**
 
-[2-4 sentences: what you built (the scout, your strategy), what broke
-or fell short, what changed because of it.]
+I installed and configured the `issue-scout` skill, created search queries and ranking filters, and ran two scans to identify potential open-source issues. 
+The initial scan exposed an empty fit profile, and the results favored very new issues and OpenAPI tasks instead of my Java backend interests.
+I completed the fit profile, refined the search strategy, and graded OpenSearch Java issue #289, which received an `accept` verdict.
+The grading also revealed that the issue is old and may require a more self-contained reproduction, so I documented these limitations and identified improvements for future searches.
 
 **Unit 6: [one line on the tool work]**
 
