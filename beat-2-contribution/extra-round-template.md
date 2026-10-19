@@ -1,9 +1,9 @@
-# Contribution: [Issue Title]
+# Contribution: [BUG] GetRequest API is not returning featureAttributes as expected
 
 **Contribution Number:** [1]
-**Student:** [Student name]
-**Issue:** [GitHub issue link]
-**Pull Request:** [GitHub PR link, once opened]
+**Student:** Addisalem Wordofa
+**Issue:** https://github.com/opensearch-project/opensearch-java/issues/289
+**Pull Request:** Not opened yet
 
 <!--
 This is the blank template for an extra contribution. Copy this file
@@ -42,10 +42,12 @@ starting below: what you built or changed that week, what broke, and
 what you changed because of it. The blocks tell the story where it
 happened; these entries are the toolkit's own timeline.
 
-### Unit 5: [one line on the tool work]
+### Unit 5: Built and refined the issue-scout tool
 
-[2-4 sentences: what you built (the scout, your strategy), what broke
-or fell short, what changed because of it.]
+I installed and configured the `issue-scout` skill, created search queries and ranking filters, and ran two scans to identify potential open-source issues. 
+The initial scan exposed an empty fit profile, and the results favored very new issues and OpenAPI tasks instead of my Java backend interests.
+I completed the fit profile, refined the search strategy, and graded OpenSearch Java issue #289, which received an `accept` verdict.
+The grading also revealed that the issue is old and may require a more self-contained reproduction, so I documented these limitations and identified improvements for future searches.
 
 ### Unit 6: [one line on the tool work]
 
