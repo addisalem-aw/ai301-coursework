@@ -25,10 +25,12 @@ Total: 14 passed, 0 warnings, 0 errors.
 ### Evidence 1: Schema correction and Validation tests code
 
 Schema correction showing the component name change
-![Schema correction showing the component name change](evidence/schema-correction.PNG)
 
-validation test code for RUS12 balance-sheet-asset 
-![validation test code for RUS12 balance-sheet-asset ](evidence/RUS12-balance-sheet-asset-validation-tests.PNG)
+evidence/schema-correction.PNG
+
+Validation test code for RUS12 balance-sheet-asset 
+
+evidence/RUS12-balance-sheet-asset-validation-tests.PNG
 
 ### Evidence 2: Successful dbt validation
 
