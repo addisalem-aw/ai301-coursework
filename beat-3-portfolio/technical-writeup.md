@@ -28,7 +28,7 @@ Total: 14 passed, 0 warnings, 0 errors.
 
 ![Schema correction showing the component name change](evidence/schema-correction.PNG)
 
-**Validation test code for RUS12 balance-sheet-asset **
+**Validation test code for RUS12 balance-sheet-asset**
 
 ![Validation test code for RUS12 balance-sheet-asset](evidence/RUS12-balance-sheet-asset-validation-tests.PNG)
 
